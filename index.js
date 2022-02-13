@@ -14,7 +14,7 @@ btn_correspondiente = [
   select_id("btn1"),
   select_id("btn2"),
   select_id("btn3"),
-  select_id("btn4")
+  select_id("btn4"),
 ];
 let npreguntas = [];
 
@@ -34,19 +34,19 @@ function escogerPreguntaAleatoria() {
     if (n >= interprete_bp.length) {
       n = 0;
     }
-    if (npreguntas.length == interprete_bp.length) { //reemplazar interprete_bp por la numero de preguntas(por crear)
+    if (npreguntas.length == interprete_bp.length) {
+      //reemplazar interprete_bp por la numero de preguntas(por crear)
       //Aquí es donde el juego se reinicia
       if (mostrar_pantalla_juego_términado) {
         swal.fire({
           title: "Juego finalizado",
-          text:
-            "Puntuación: " + preguntas_correctas + "/" + (preguntas_hechas), // dejar el -1 esta mal
-          icon: "success"
+          text: "Puntuación: " + preguntas_correctas + "/" + preguntas_hechas, // dejar el -1 esta mal
+          icon: "success",
         });
       }
       if (reiniciar_puntos_al_reiniciar_el_juego) {
-        preguntas_correctas = 0
-        preguntas_hechas = 0
+        preguntas_correctas = 0;
+        preguntas_hechas = 0;
       }
       npreguntas = [];
     }
@@ -61,7 +61,7 @@ function escogerPregunta(n) {
   pregunta = interprete_bp[n];
   select_id("categoria").innerHTML = pregunta.categoria;
   select_id("pregunta").innerHTML = pregunta.pregunta;
-  select_id("numero").innerHTML = n+1; //para que la pregunta comience en 1
+  select_id("numero").innerHTML = n + 1; //para que la pregunta comience en 1
   let pc = preguntas_correctas;
   if (preguntas_hechas > 1) {
     select_id("puntaje").innerHTML = pc + "/" + (preguntas_hechas - 1);
@@ -101,7 +101,8 @@ function desordenarRespuestas(pregunta) {
 
 let suspender_botones = false;
 
-function oprimir_btn(i) { //evento onclick desde HTML
+function oprimir_btn(i) {
+  //evento onclick desde HTML
   if (suspender_botones) {
     return;
   }
@@ -150,4 +151,11 @@ function readText(ruta_local) {
     texto = xmlhttp.responseText;
   }
   return texto;
+}
+
+function lanzarPregunta() {
+  document.getElementById("modalPregunta").style.display = "block";
+}
+function closeModal() {
+  document.getElementById("modalPregunta").style.display = "none";
 }
