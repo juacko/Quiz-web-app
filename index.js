@@ -1,5 +1,4 @@
-//declarando variables generales
-let preguntas_aleatorias = true; 
+let preguntas_aleatorias = true;
 let mostrar_pantalla_juego_términado = true;
 let reiniciar_puntos_al_reiniciar_el_juego = true;
 
@@ -160,3 +159,7 @@ function lanzarPregunta() {
 function closeModal() {
   document.getElementById("modalPregunta").style.display = "none";
 }
+/* 
+function abrirExamen() {
+  document.getElementById("btnIniciarExamen").style.display = "none";
+} */
