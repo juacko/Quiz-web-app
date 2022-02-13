@@ -34,13 +34,13 @@ function escogerPreguntaAleatoria() {
     if (n >= interprete_bp.length) {
       n = 0;
     }
-    if (npreguntas.length == interprete_bp.length) {
+    if (npreguntas.length == interprete_bp.length) { //reemplazar interprete_bp por la numero de preguntas(por crear)
       //Aquí es donde el juego se reinicia
       if (mostrar_pantalla_juego_términado) {
         swal.fire({
           title: "Juego finalizado",
           text:
-            "Puntuación: " + preguntas_correctas + "/" + (preguntas_hechas - 1),
+            "Puntuación: " + preguntas_correctas + "/" + (preguntas_hechas), // dejar el -1 esta mal
           icon: "success"
         });
       }
@@ -61,7 +61,7 @@ function escogerPregunta(n) {
   pregunta = interprete_bp[n];
   select_id("categoria").innerHTML = pregunta.categoria;
   select_id("pregunta").innerHTML = pregunta.pregunta;
-  select_id("numero").innerHTML = n;
+  select_id("numero").innerHTML = n+1; //para que la pregunta comience en 1
   let pc = preguntas_correctas;
   if (preguntas_hechas > 1) {
     select_id("puntaje").innerHTML = pc + "/" + (preguntas_hechas - 1);
@@ -101,7 +101,7 @@ function desordenarRespuestas(pregunta) {
 
 let suspender_botones = false;
 
-function oprimir_btn(i) {
+function oprimir_btn(i) { //evento onclick desde HTML
   if (suspender_botones) {
     return;
   }
