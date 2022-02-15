@@ -21,11 +21,10 @@ let npreguntas = [];
 
 let preguntas_hechas = 0;
 let preguntas_correctas = 0;
-var numPreguntas = 0;
 
 
 function escogerPreguntaAleatoria() {
-
+  let valorInput = document.getElementById("numPreguntasExam").value;
   let n;
   if (preguntas_aleatorias) {
     n = Math.floor(Math.random() * interprete_bp.length);
@@ -40,7 +39,7 @@ function escogerPreguntaAleatoria() {
     }
   }
 
-  if (npreguntas.length == numPreguntas) {
+  if (npreguntas.length ==valorInput) {
     //reemplazar interprete_bp por la numero de preguntas(por crear)
     //Aquí es donde el juego se reinicia
     if (mostrar_pantalla_juego_términado) {
@@ -69,7 +68,7 @@ function escogerPregunta(n) {
   select_id("numero").innerHTML = n + 1; //para que la pregunta comience en 1
   let pc = preguntas_correctas;
   if (preguntas_hechas > 1) {
-    select_id("puntaje").innerHTML = pc + "/" + (preguntas_hechas - 1);
+    select_id("puntaje").innerHTML = pc + "/" + (preguntas_hechas);
   } else {
     select_id("puntaje").innerHTML = "";
   }
@@ -187,7 +186,7 @@ function materias(m) {
       document.getElementById("entrada6").value = 9;
       document.getElementById("entrada7").value = 5;
       document.getElementById("entrada8").value = 7;
-      totalPreguntas = 5;
+      document.getElementById("numPreguntasExam").innerHTML = 3;
       break;
     case 2:
       document.getElementById("materia1").innerHTML = "Razonamiento verbal";
@@ -207,7 +206,7 @@ function materias(m) {
       document.getElementById("entrada6").value = 2;
       document.getElementById("entrada7").value = 6;
       document.getElementById("entrada8").value = 5;
-      totalPreguntas = 4;
+      numPreguntas = 4;
       break;
     case 3:
       document.getElementById("materia1").innerHTML = "Razonamiento verbal";
@@ -246,14 +245,27 @@ function materias(m) {
       document.getElementById("entrada6").value = 4;
       document.getElementById("entrada7").value = 3;
       document.getElementById("entrada8").value = 7;
-      totalPreguntas = 2;
+      numPreguntas = 2;
       break;
     default:
       document.getElementById("materia1").innerHTML = "Celda 8";
   }
 }
 
-/* 
-function abrirExamen() {
-  document.getElementById("btnIniciarExamen")
-} */
+function mostrarValor() {
+  let valorInput = document.getElementById("numPreguntasExam").value;
+  
+}
+
+/* const getValueInput = () =>{
+  let inputValue = document.getElementById("domTextElement").value; 
+  document.getElementById("valueInput").innerHTML = inputValue; 
+  console.log(getValueInput());
+  }
+
+function myFunction() {
+let inputValue = document.getElementById("domTextElement").value; 
+var x = document.getElementById("valueInput").innerHTML = inputValue; 
+alert (x);
+}
+ */

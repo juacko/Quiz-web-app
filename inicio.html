@@ -5,61 +5,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="https://bootswatch.com/5/cosmo/bootstrap.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./css/estilos.css" />
     <title>Examen de Admision por canales</title>
-  </head> 
+    <script src="sweetalert2.all.min.js"></script>
+  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <body class="center">
-    <style>
-      * {
-        transition: all 0.3s;
-      }
-
-      body {
-        padding: 50px;
-        margin: 40px;
-        text-align: center;
-        /* font-family: calibri; */
-      }
-
-      .titleA {
-        padding: 20px;
-      }
-      .contenedor {
-          padding: 10px;
-      }
-
-    </style>
-
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img
+          src="/img/examen.png"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        SIMULACRO DE EXAMEN</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="./index.html"
+            >Iniciar Examen<span class="sr-only"> (Random)</span></a
+          >
+          <a class="nav-item nav-link" href="#">Features</a>
+          <a class="nav-item nav-link" href="#">Pricing</a>
+          <a class="nav-item nav-link disabled" href="#">Disabled</a>
+        </div>
+      </div>
+    </nav>
     <!-- botones de seleccion de canales -->
-    <div class="titleA">
-      <h1>SIMULACRO DE EXAMEN DE ADMISION</h1>
+    <div class="btnContainer">
+      <button
+        id="btnCanal1"
+        class="btn btn-primary mr-2 ml-3"
+        onclick="lanzarPregunta(1)"
+      >
+        <h4>Canal 1</h4>
+      </button>
+
+      <button
+        id="btnCanal2"
+        class="btn btn-warning"
+        onclick="lanzarPregunta(2)"
+      >
+        <h4>Canal 2</h4>
+      </button>
+
+      <button id="btnCanal3" class="btn btn-danger" onclick="lanzarPregunta(3)">
+        <h4>Canal 3</h4>
+      </button>
+
+      <button id="btnCanal4" class="btn btn-info" onclick="lanzarPregunta(4)">
+        <h4>Canal 4</h4>
+      </button>
     </div>
-    <div class="contenedor">
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <button id="btnCanal1" class="btn btn-primary" onclick="lanzarPregunta(1)">
-              <h4>Canal 1</h4>
-            </button>
-      
-            <button id="btnCanal2" class="btn btn-warning" onclick="lanzarPregunta(2)">
-              <h4>Canal 2</h4>
-            </button>
-      
-            <button id="btnCanal3" class="btn btn-danger" onclick="lanzarPregunta(3)">
-              <h4>Canal 3</h4>
-            </button>
-      
-            <button
-              id="btnCanal4"
-              class="btn btn-info"
-              onclick="lanzarPregunta(4)"
-            >
-              <h4>Canal 4</h4>
-            </button>
-          </div>
-    </div>
-    
+
     <!-- modal de canales por curso -->
     <div class="modal" tabindex="-1" role="dialog" id="modalPregunta">
       <div class="modal-dialog" role="document" id="modalTitulo">
@@ -77,57 +92,159 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <table class="table table-striped">
-              <tr>
+          <div class="header_fijo">
+            <table id="tabla">
+              <thead>
                 <th>ÁREA / ASIGNATURA</th>
-                <th>CANTIDAD DE PREGUNTAS</th>
-              </tr>
-              <tr>
-                <td><p id="materia1"></p></td>
-                <td><input type="number" class="form-control" min="0" max="20" id="entrada1"/></td>
-              </tr>
-              <tr>
-                <td><p id="materia2"></p></td>
-                <td><input type="number" class="form-control" min="0" max="20" id="entrada2"/></td>
-              </tr>
-              <tr>
-                <td><p id="materia3"></p></td>
-                <td><input type="number" class="form-control"min="0" max="20" id="entrada3" /></td>
-              </tr>
-              <tr>
-                <td><p id="materia4"></p></td>
-                <td><input type="number" class="form-control" min="0" max="20" id="entrada4"/></td>
-              </tr>
-              <tr>
-                <td><p id="materia5"></p></td>
-                <td><input type="number" class="form-control" min="0" max="20" id="entrada5"/></td>
-              </tr>
-              <tr>
-                <td><p id="materia6"></p></td>
-                <td><input type="number" class="form-control" min="0" max="20" id="entrada6"/></td>
-              </tr>
-              <tr>
-                <td><p id="materia7"></p></td>
-                <td><input type="number" class="form-control" min="0" max="20" id="entrada7"/></td>
-              </tr>
-              <tr>
-                <td><p id="materia8"></p></td>
-                <td><input type="number" class="form-control" min="0" max="20" id="entrada8"/></td>
-              </tr>
+                <th>N° PREGUNTAS</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><p  id="materia1"></p></td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      min="0"
+                      max="20"
+                      id="entrada1"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><p id="materia2"></p></td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      min="0"
+                      max="20"
+                      id="entrada2"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><p id="materia3"></p></td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      min="0"
+                      max="20"
+                      id="entrada3"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><p id="materia4"></p></td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      min="0"
+                      max="20"
+                      id="entrada4"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><p id="materia5"></p></td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      min="0"
+                      max="20"
+                      id="entrada5"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><p id="materia6"></p></td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      min="0"
+                      max="20"
+                      id="entrada6"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><p id="materia7"></p></td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      min="0"
+                      max="20"
+                      id="entrada7"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><p id="materia8"></p></td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      min="0"
+                      max="20"
+                      id="entrada8"
+                    />
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </div>
+          <div class="totalPreguntasExam">
+            <div class="container">
+              <p id="totalP"><b>Total Preguntas</b></p>
+            </div>
+            <div class="container">
+              <b><input id="numPreguntasExam"></b>  <!-- probando atrapar valor de un input -->
+            </div>
+          </div>
           <div class="modal-footer">
-            <a href="index.html" target="formularios"><button class="btn btn-primary" id="btnIniciarExamen">
-              INICIAR EXAMEN
-            </button></a>
-            
+            <nav>
+              <!-- <a href="./exam.html"> -->
+                <button class="btn btn-primary" id="btnIniciarExamen" onclick="escogerPreguntaAleatoria()">
+                  INICIAR EXAMEN
+                </button></a
+              >
+            </nav>
           </div>
         </div>
       </div>
     </div>
-    <div></div>
+   
+    <!-- añandiendo exam.html al inicio -->
+    <div class="contenedor">
+      <div class="puntaje" id="puntaje"></div>
+      <div class="encabezado">
+        <div class="categoria" id="categoria"></div>
+        <div class="numero" id="numero"></div>
+        <div class="pregunta" id="pregunta"></div>
+        <img src="#" class="imagen" id="imagen" />
+      </div>
+      <div class="btn" id="btn1" onclick="oprimir_btn(0)"></div>
+      <div class="btn" id="btn2" onclick="oprimir_btn(1)"></div>
+      <div class="btn" id="btn3" onclick="oprimir_btn(2)"></div>
+      <div class="btn" id="btn4" onclick="oprimir_btn(3)"></div>
+    </div>
+   <!--  <iframe class="panelExamen" src="./exam.html"></iframe> -->
+     <!-- llamando un valor -->
+  <!--    <label for="domTextElement">Escribe algo aqui: </label>
+     <input type="text" id="domTextElement" onkeyup="getValueInput()"> 
+     
+     <button type="button"  onclick="myFunction()"> 
+        Muestrame que escribi 
+     </button> 
+     
+     <p id="valueInput">hola</p>  -->
+ 
     <!-- Enlazar al archivo javascript -->
-    <script src="index.js"></script>
+    <script src="/js/index.js"></script>
   </body>
 </html>

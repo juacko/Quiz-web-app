@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      tr:nth-child(even) {
+        background-color: #efefef;
+      }
+
+      /* ::-webkit-scrollbar-track { */
+      /*       background-color: blue; */
+      /* } */
+
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+
+      /* ::-webkit-scrollbar-button {  */
+      /*        background-color: navy;  */
+      /*  }  */
+
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 200px;
+      }
+
+      table th {
+        font-size: 1.1em;
+        text-align: center;
+        font-weight: bold;
+        color: #ffffff;
+        background: #0093e2;
+        border-radius: 6px;
+        border: 100px;
+        padding: 6px;
+      }
+
+      /*Desde aquí agregue los estilos*/
+
+      .header_fijo * {
+        box-sizing: border-box;
+        /*border-collapse: collapse;*/
+        table-layout: fixed;
+      }
+
+      .header_fijo thead,
+      .header_fijo tbody {
+        display: block;
+      }
+
+      .header_fijo tbody {
+        overflow: auto;
+        height: 100px;
+      }
+
+      .header_fijo tr > * {
+        width: 100px;
+      }
+
+      /*corregir el espacio del scroll a la izquierda del tbody*/
+      .header_fijo thead th:last-child {
+        width: 110px;
+      }
+    </style>
+    <div class="header_fijo">
+      <table>
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Savings</th>
+            <th>Savings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>January</td>
+            <td>$100</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>$180</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
