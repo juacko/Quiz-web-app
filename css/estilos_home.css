@@ -4,6 +4,7 @@
 }
 body{
     font-family: 'Lato', sans-serif;
+    background-color: slategrey;
 }
 .wrapper{
     width: 1170px;
@@ -106,4 +107,35 @@ margin: 30% 0;
     .welcome-text h1 {
 font-size: 30px;
 }
+}
+/* TABLA */
+
+.container-table {
+    width: 90%;
+    margin: 50px auto;
+    background: #fff;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 50px;
+}
+
+.table-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+.table-contain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.table-contain-materia{
+    
+}
+
+.table-contain-npreguntas{
+
 }

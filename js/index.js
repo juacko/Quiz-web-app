@@ -4,8 +4,10 @@ let reiniciar_puntos_al_reiniciar_el_juego = true;
 var inicio_juego = false;
 
 window.onload = function () {
+  hideQuizPanel()
   base_preguntas = readText("base-preguntas.json");
   interprete_bp = JSON.parse(base_preguntas);
+  
   //escogerPreguntaAleatoria();
 };
 var entrada1;
@@ -24,6 +26,7 @@ let preguntas_correctas = 0;
 
 function iniciarExamen() {
   closeModal();
+  showQuizPanel()
   escogerPreguntaAleatoria();
   entrada1 = document.getElementById("entrada1").value;
 }
@@ -79,7 +82,7 @@ function escogerPreguntaAleatoria() {
           if (result.isConfirmed) {
             Swal.fire("Reiniciando!", "Selecciona una categoria", "success");
           }
-         
+         hideQuizPanel()
         });
     }
 
@@ -304,6 +307,16 @@ function on() {
 function off() {
   document.getElementById("overlay").style.display = "none";
 }
+/* OCULTAR / MOSTRAR PANEL DE PREGUNTAS */
+function hideQuizPanel(){
+  document.getElementById("quizPanel").style.visibility = "hidden"; // oculta
+}
+
+function showQuizPanel(){
+  document.getElementById("quizPanel").style.visibility = "visible"; // muestra
+}
+
+
 /* const getValueInput = () =>{
   let inputValue = document.getElementById("domTextElement").value; 
   document.getElementById("valueInput").innerHTML = inputValue; 

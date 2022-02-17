@@ -16,7 +16,7 @@
   <body class="center">
     <!-- nav bar -->
     <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="home.html">
         <img src="/img/examen.png" width="30" height="30" class="d-inline-block align-top" alt="" id="img">
         Examen Admision
       </a>
@@ -65,8 +65,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm" id="tabla">
+            <table class="table" id="tabla">
               <thead class="thead">
                 <tr>
                   <th scope="col">ÁREA / ASIGNATURA</th>
@@ -171,17 +170,14 @@
                     />
                   </td>
                 </tr>
+                <tr>
+                  <th scope="row"><p id="total">total</p></th>
+                  <td>
+                    <p id="sumTotal" placeholder="40">
+                  </td>
+                </tr>
               </tbody>
             </table>
-          </div>
-          <div class="totalPreguntasExam">
-            <div class="container">
-              <p id="totalP"><b>Total Preguntas</b></p>
-            </div>
-            <div class="container">
-              <b><input id="numPreguntasExam"></b>  <!-- probando atrapar valor de un input -->
-            </div>
-          </div>
           <div class="modal-footer">
             <nav>
               <!-- <a href="./exam.html"> -->
@@ -196,7 +192,7 @@
     </div>
    
     <!-- añandiendo exam.html al inicio -->
-    <div class="contenedor">
+    <div class="contenedor" id="quizPanel">
       <div class="puntaje" id="puntaje"></div>
       <div class="encabezado">
         <div class="categoria" id="categoria"></div>
@@ -211,7 +207,7 @@
     </div>
 
     <!-- overlay -->
-    <div id="overlay" onclick="off()">
+<!--     <div id="overlay" onclick="off()">
       <img src="https://datanoticias.com/wp-content/uploads/2020/06/UAEMex-examen-admisi%C3%B3n-convocatoria-2020.jpg" alt="">
     </div>
 
@@ -219,7 +215,7 @@
       <h2>Overlay</h2>
       <p>Añadiar contenido para el overlay (100% width and height with a black background color with 50% opacity).</p>
       <button onclick="on()">Activar efecto Overlay</button>
-    </div>
+    </div> -->
    <!--  <iframe class="panelExamen" src="./exam.html"></iframe> -->
      <!-- llamando un valor -->
   <!--    <label for="domTextElement">Escribe algo aqui: </label>
