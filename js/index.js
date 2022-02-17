@@ -1,14 +1,14 @@
 let preguntas_aleatorias = true;
 let mostrar_pantalla_juego_términado = true;
 let reiniciar_puntos_al_reiniciar_el_juego = true;
-let totalPreguntas = 0;
+var inicio_juego = false;
 
 window.onload = function () {
   base_preguntas = readText("base-preguntas.json");
   interprete_bp = JSON.parse(base_preguntas);
-  escogerPreguntaAleatoria();
+  //escogerPreguntaAleatoria();
 };
-
+var entrada1;
 let pregunta;
 let posibles_respuestas;
 btn_correspondiente = [
@@ -22,9 +22,30 @@ let npreguntas = [];
 let preguntas_hechas = 0;
 let preguntas_correctas = 0;
 
+function iniciarExamen() {
+  closeModal();
+  escogerPreguntaAleatoria();
+  entrada1 = document.getElementById("entrada1").value;
+}
 
 function escogerPreguntaAleatoria() {
-  let valorInput = document.getElementById("numPreguntasExam").value;
+  //var entrada1= document.getElementById("entrada1").value;
+  var entrada2 = document.getElementById("entrada2").value;
+  var entrada3 = document.getElementById("entrada3").value;
+  var entrada4 = document.getElementById("entrada4").value;
+  var entrada5 = document.getElementById("entrada5").value;
+  var entrada6 = document.getElementById("entrada6").value;
+  var entrada7 = document.getElementById("entrada7").value;
+  var entrada8 = document.getElementById("entrada8").value;
+  var valorInput =
+    parseInt(entrada1) +
+    parseInt(entrada2) +
+    parseInt(entrada3) +
+    parseInt(entrada4) +
+    parseInt(entrada5) +
+    parseInt(entrada6) +
+    parseInt(entrada7) +
+    parseInt(entrada8);
   let n;
   if (preguntas_aleatorias) {
     n = Math.floor(Math.random() * interprete_bp.length);
@@ -39,24 +60,43 @@ function escogerPreguntaAleatoria() {
     }
   }
 
-  if (npreguntas.length ==valorInput) {
+  if (npreguntas.length == entrada1) {
     //reemplazar interprete_bp por la numero de preguntas(por crear)
     //Aquí es donde el juego se reinicia
     if (mostrar_pantalla_juego_términado) {
-      swal.fire({
-        title: "Juego finalizado",
-        text: "Puntuación: " + preguntas_correctas + "/" + preguntas_hechas, // dejar el -1 esta mal
-        icon: "success",
-      });
+      swal
+        .fire({
+          title: "Examen Terminado",
+          text: "Puntuacion:" + preguntas_correctas + "/" + preguntas_hechas,
+          icon: "success",
+          showCancelButton: true,
+          cancelButtonText: "Salir",
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Intentar de nuevo!",
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire("Reiniciando!", "Selecciona una categoria", "success");
+          }
+         
+        });
     }
+
     if (reiniciar_puntos_al_reiniciar_el_juego) {
       preguntas_correctas = 0;
       preguntas_hechas = 0;
+      npreguntas = [];
+      return;
     }
+
     npreguntas = [];
   }
   npreguntas.push(n);
+
   preguntas_hechas++;
+  console.log(preguntas_correctas)
+  console.log(preguntas_hechas)
 
   escogerPregunta(n);
 }
@@ -68,7 +108,7 @@ function escogerPregunta(n) {
   select_id("numero").innerHTML = n + 1; //para que la pregunta comience en 1
   let pc = preguntas_correctas;
   if (preguntas_hechas > 1) {
-    select_id("puntaje").innerHTML = pc + "/" + (preguntas_hechas);
+    select_id("puntaje").innerHTML = pc + "/" + preguntas_hechas;
   } else {
     select_id("puntaje").innerHTML = "";
   }
@@ -127,7 +167,7 @@ function oprimir_btn(i) {
   setTimeout(() => {
     reiniciar();
     suspender_botones = false;
-  }, 3000);
+  }, 1000);
 }
 
 // let p = prompt("numero")
@@ -158,7 +198,16 @@ function readText(ruta_local) {
   return texto;
 }
 
+function reiniciarDatos() {
+  preguntas_correctas = 0;
+  preguntas_hechas = 0;
+  npreguntas = [];
+}
+
 function lanzarPregunta(m) {
+  preguntas_correctas = 0;
+  preguntas_hechas = 0;
+  npreguntas = [];
   materias(m);
   document.getElementById("modalPregunta").style.display = "block";
 }
@@ -186,7 +235,6 @@ function materias(m) {
       document.getElementById("entrada6").value = 9;
       document.getElementById("entrada7").value = 5;
       document.getElementById("entrada8").value = 7;
-      document.getElementById("numPreguntasExam").innerHTML = 3;
       break;
     case 2:
       document.getElementById("materia1").innerHTML = "Razonamiento verbal";
@@ -206,7 +254,6 @@ function materias(m) {
       document.getElementById("entrada6").value = 2;
       document.getElementById("entrada7").value = 6;
       document.getElementById("entrada8").value = 5;
-      numPreguntas = 4;
       break;
     case 3:
       document.getElementById("materia1").innerHTML = "Razonamiento verbal";
@@ -225,7 +272,6 @@ function materias(m) {
       document.getElementById("entrada6").value = 5;
       document.getElementById("entrada7").value = 4;
       document.getElementById("entrada8").value = 3;
-      totalPreguntas = 3;
       break;
     case 4:
       document.getElementById("materia1").innerHTML = "Razonamiento verbal";
@@ -245,18 +291,19 @@ function materias(m) {
       document.getElementById("entrada6").value = 4;
       document.getElementById("entrada7").value = 3;
       document.getElementById("entrada8").value = 7;
-      numPreguntas = 2;
       break;
     default:
       document.getElementById("materia1").innerHTML = "Celda 8";
   }
 }
 
-function mostrarValor() {
-  let valorInput = document.getElementById("numPreguntasExam").value;
-  
+function on() {
+  document.getElementById("overlay").style.display = "block";
 }
 
+function off() {
+  document.getElementById("overlay").style.display = "none";
+}
 /* const getValueInput = () =>{
   let inputValue = document.getElementById("domTextElement").value; 
   document.getElementById("valueInput").innerHTML = inputValue; 
