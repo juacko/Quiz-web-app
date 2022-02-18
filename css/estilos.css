@@ -25,23 +25,28 @@ body {
 .panelExamen {
   width: 100%;
   height: 530px;
-  margin: 10px;
+  
   display: grid;
   /* auto-fit - Llena los espacios para completar el espacio/ auto-fill deja espacios sin llenar */
   grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); 
   gap: 1rem;
-  grid-auto-rows: auto;
-  transition: all 0.3s;
+  grid-auto-rows: auto; 
 }
+
 /* MODAL */
-.modal {
-  display: flex;
+/* .modal {
+  margin: auto;
+  padding-left: auto;
+
+  width: fit-content;
   justify-content: center;
+  justify-items: center;
   
 }
+ */
+
 .modal-header {
   height: 3rem;
-
 }
 /* ESTILOS PARA TABLA*/
 
@@ -49,10 +54,12 @@ td {
 text-align: center;
 justify-content: center;
 }
+
 th {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   
 }
+
 .modal input {
   height: 30px;
   width: 100px;
@@ -61,35 +68,42 @@ th {
   align-items: center;
   text-align: center;
 } 
+
 tbody {
   height: 200px;
 }
-.table {
+
+/* .table {
   height: 5rem;
   width: auto;
-}
+} */
+
 p {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* ESTILOS PARA EXAMEN */
 .contenedor {
-  /* background-color: #e30032; */
+/*   background-color: #e30032; */
   width: 100%;
   height: auto;
-  display: inline-flex;
+  /* display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  transition: all 0.3s;
+  align-items: center; */
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+ /*  transition: all 0.3s; */
 }
 
 .encabezado {
   position: relative;
   background: white;
   min-width: 300px;
-  width: 70%;
-  max-width: 600px;
+  width: center;
+  /* max-width: 600px; */
+  
   padding: 10px;
   transition: all 0.3s;
 }
@@ -120,6 +134,7 @@ p {
   margin: 5px;
   cursor: pointer;
 }
+
 #btn2 {
   background: white;
   width: 60%;
@@ -128,6 +143,7 @@ p {
   margin: 5px;
   cursor: pointer;
 }
+
 #btn3 {
   background: white;
   width: 60%;
@@ -136,6 +152,7 @@ p {
   margin: 5px;
   cursor: pointer;
 }
+
 #btn4 {
   background: white;
   width: 60%;
@@ -144,6 +161,7 @@ p {
   margin: 5px;
   cursor: pointer;
 }
+
 #btn1:hover {
   transform: scale(1.05);
 }
@@ -173,7 +191,7 @@ p {
   margin-left: 1rem;
 }
 /* OVERLAY */
-#overlay {
+/* #overlay {
   position: fixed;
   display: none;
   width: 100%;
@@ -185,4 +203,5 @@ p {
   background-color: rgba(0,0,0,0.85);
   z-index: 2;
   cursor: pointer;
-}
+} */
+

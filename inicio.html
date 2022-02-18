@@ -16,7 +16,7 @@
   <body class="center">
     <!-- nav bar -->
     <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="home.html">
+      <a class="navbar-brand" href="#">
         <img src="/img/examen.png" width="30" height="30" class="d-inline-block align-top" alt="" id="img">
         Examen Admision
       </a>
@@ -48,6 +48,21 @@
       </button>
     </div>
 
+        <!-- añandiendo exam.html al inicio -->
+        <div class="contenedor" id="quizPanel" style="display:none;">
+          <div class="puntaje" id="puntaje"></div>
+          <div class="encabezado">
+            <div class="categoria" id="categoria"></div>
+            <div class="numero" id="numero"></div>
+            <div class="pregunta" id="pregunta"></div>
+            <img src="#" class="imagen" id="imagen" />
+          </div>
+          <div class="btn" id="btn1" onclick="oprimir_btn(0)"></div>
+          <div class="btn" id="btn2" onclick="oprimir_btn(1)"></div>
+          <div class="btn" id="btn3" onclick="oprimir_btn(2)"></div>
+          <div class="btn" id="btn4" onclick="oprimir_btn(3)"></div>
+        </div>
+    
     <!-- modal de canales por curso -->
     <div class="modal" tabindex="-1" role="dialog" id="modalPregunta">
       <div class="modal-dialog" role="document" id="modalTitulo">
@@ -65,7 +80,8 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-            <table class="table" id="tabla">
+          <div class="table-responsive">
+            <table class="table table-striped table-sm" id="tabla">
               <thead class="thead">
                 <tr>
                   <th scope="col">ÁREA / ASIGNATURA</th>
@@ -170,14 +186,10 @@
                     />
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row"><p id="total">total</p></th>
-                  <td>
-                    <p id="sumTotal" placeholder="40">
-                  </td>
-                </tr>
               </tbody>
             </table>
+          </div>
+      
           <div class="modal-footer">
             <nav>
               <!-- <a href="./exam.html"> -->
@@ -191,20 +203,6 @@
       </div>
     </div>
    
-    <!-- añandiendo exam.html al inicio -->
-    <div class="contenedor" id="quizPanel">
-      <div class="puntaje" id="puntaje"></div>
-      <div class="encabezado">
-        <div class="categoria" id="categoria"></div>
-        <div class="numero" id="numero"></div>
-        <div class="pregunta" id="pregunta"></div>
-        <img src="#" class="imagen" id="imagen" />
-      </div>
-      <div class="btn" id="btn1" onclick="oprimir_btn(0)"></div>
-      <div class="btn" id="btn2" onclick="oprimir_btn(1)"></div>
-      <div class="btn" id="btn3" onclick="oprimir_btn(2)"></div>
-      <div class="btn" id="btn4" onclick="oprimir_btn(3)"></div>
-    </div>
 
     <!-- overlay -->
 <!--     <div id="overlay" onclick="off()">

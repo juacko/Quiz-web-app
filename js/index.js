@@ -3,14 +3,34 @@ let mostrar_pantalla_juego_términado = true;
 let reiniciar_puntos_al_reiniciar_el_juego = true;
 var inicio_juego = false;
 
-window.onload = function () {
+/* window.onload = function () {
   hideQuizPanel()
   base_preguntas = readText("base-preguntas.json");
   interprete_bp = JSON.parse(base_preguntas);
-  
-  //escogerPreguntaAleatoria();
-};
-var entrada1;
+}; */
+
+/* escoger categoria */
+function escogerCategoria(categoria) {
+  base_preguntas = readText("base-preguntas.json");
+  interprete_bp = JSON.parse(base_preguntas);
+  let nbp = [];
+  for (const p of interprete_bp) {
+    if (p.categoria == categoria) {
+      nbp.push(p);
+    }
+  }
+  interprete_bp = nbp;
+  escogerPreguntaAleatoria();
+}
+
+function iniciarExamen() {
+  closeModal();
+  showQuizPanel();
+  escogerCategoria("Historia")
+  escogerPreguntaAleatoria();
+
+}
+
 let pregunta;
 let posibles_respuestas;
 btn_correspondiente = [
@@ -24,15 +44,8 @@ let npreguntas = [];
 let preguntas_hechas = 0;
 let preguntas_correctas = 0;
 
-function iniciarExamen() {
-  closeModal();
-  showQuizPanel()
-  escogerPreguntaAleatoria();
-  entrada1 = document.getElementById("entrada1").value;
-}
-
 function escogerPreguntaAleatoria() {
-  //var entrada1= document.getElementById("entrada1").value;
+/*   var entrada1 = document.getElementById("entrada1").value;
   var entrada2 = document.getElementById("entrada2").value;
   var entrada3 = document.getElementById("entrada3").value;
   var entrada4 = document.getElementById("entrada4").value;
@@ -48,7 +61,7 @@ function escogerPreguntaAleatoria() {
     parseInt(entrada5) +
     parseInt(entrada6) +
     parseInt(entrada7) +
-    parseInt(entrada8);
+    parseInt(entrada8); */
   let n;
   if (preguntas_aleatorias) {
     n = Math.floor(Math.random() * interprete_bp.length);
@@ -63,7 +76,7 @@ function escogerPreguntaAleatoria() {
     }
   }
 
-  if (npreguntas.length == entrada1) {
+  if (npreguntas.length == 3) {
     //reemplazar interprete_bp por la numero de preguntas(por crear)
     //Aquí es donde el juego se reinicia
     if (mostrar_pantalla_juego_términado) {
@@ -82,15 +95,15 @@ function escogerPreguntaAleatoria() {
           if (result.isConfirmed) {
             Swal.fire("Reiniciando!", "Selecciona una categoria", "success");
           }
-         hideQuizPanel()
+          hideQuizPanel();
         });
     }
 
     if (reiniciar_puntos_al_reiniciar_el_juego) {
       preguntas_correctas = 0;
       preguntas_hechas = 0;
-      npreguntas = [];
-      return;
+      /* npreguntas = []; */
+      /* return; */
     }
 
     npreguntas = [];
@@ -98,8 +111,8 @@ function escogerPreguntaAleatoria() {
   npreguntas.push(n);
 
   preguntas_hechas++;
-  console.log(preguntas_correctas)
-  console.log(preguntas_hechas)
+  console.log(preguntas_correctas);
+  console.log(preguntas_hechas);
 
   escogerPregunta(n);
 }
@@ -108,7 +121,7 @@ function escogerPregunta(n) {
   pregunta = interprete_bp[n];
   select_id("categoria").innerHTML = pregunta.categoria;
   select_id("pregunta").innerHTML = pregunta.pregunta;
-  select_id("numero").innerHTML = n + 1; //para que la pregunta comience en 1
+  select_id("numero").innerHTML = n +1; //para que la pregunta comience en 1
   let pc = preguntas_correctas;
   if (preguntas_hechas > 1) {
     select_id("puntaje").innerHTML = pc + "/" + preguntas_hechas;
@@ -300,32 +313,20 @@ function materias(m) {
   }
 }
 
-function on() {
+/* function on() {
   document.getElementById("overlay").style.display = "block";
 }
 
 function off() {
   document.getElementById("overlay").style.display = "none";
-}
+} */
+
 /* OCULTAR / MOSTRAR PANEL DE PREGUNTAS */
-function hideQuizPanel(){
-  document.getElementById("quizPanel").style.visibility = "hidden"; // oculta
+
+function hideQuizPanel() {
+  document.getElementById("quizPanel").style.display = "none"; // oculta
 }
 
-function showQuizPanel(){
-  document.getElementById("quizPanel").style.visibility = "visible"; // muestra
+function showQuizPanel() {
+  document.getElementById("quizPanel").style.display = "block"; // muestra
 }
-
-
-/* const getValueInput = () =>{
-  let inputValue = document.getElementById("domTextElement").value; 
-  document.getElementById("valueInput").innerHTML = inputValue; 
-  console.log(getValueInput());
-  }
-
-function myFunction() {
-let inputValue = document.getElementById("domTextElement").value; 
-var x = document.getElementById("valueInput").innerHTML = inputValue; 
-alert (x);
-}
- */

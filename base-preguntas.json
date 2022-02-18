@@ -7,7 +7,7 @@
         "incorrecta2": "Miguel Ángel",
         "incorrecta3": "Monet",
         "imagen": "https://i.ibb.co/9cjvmw1/mona-lisa.jpg",
-        "objectFit": "cover"
+        "objectFit": "contain"
     },
     {
         "categoria": "Arte y literatura",
@@ -17,7 +17,7 @@
         "incorrecta2": "Picasso",
         "incorrecta3": "Dalí\r",
         "imagen": "https://i.ibb.co/SDjX7PM/jardin-de-las-delicias.jpg",
-        "objectFit": "cover"
+        "objectFit": "contain"
     },
     {
         "categoria": "Arte y literatura",
@@ -27,7 +27,7 @@
         "incorrecta2": "Dios Es El Camino",
         "incorrecta3": "Adán Y Eva\r",
         "imagen": "https://i.ibb.co/SDjX7PM/jardin-de-las-delicias.jpg",
-        "objectFit": "cover"
+        "objectFit": "contain"
     },
     {
         "categoria": "Arte y literatura",
@@ -291,5 +291,47 @@
         "incorrecta1": "Conectando algunos meridianos importantes",
         "incorrecta2": "En el estudio de los numeros primos",
         "incorrecta3": "Estudiando aquillas curvas que parecen rectas\r"
+    },
+    {
+        "categoria": "RV",
+        "pregunta": "Escribió ' El modulor'.",
+        "respuesta": "Le Corbusier",
+        "incorrecta1": "Ana Frank",
+        "incorrecta2": "Jorge Luis Borges",
+        "incorrecta3": "Charles Dickens\r"
+    },
+    {
+        "categoria": "RV",
+        "pregunta": "Músico argentino que le apodaban \"El Flaco\".",
+        "respuesta": "Luis Alberto Spinetta",
+        "incorrecta1": "Gustavo Cerati",
+        "incorrecta2": "Andrés Calamaro",
+        "incorrecta3": "Diego Torres\r"
+    },
+    {
+        "categoria": "RV",
+        "pregunta": "Arte japonés de la papiroflexia.",
+        "respuesta": "Origami",
+        "incorrecta1": "Haiku",
+        "incorrecta2": "Ikebana",
+        "incorrecta3": "Ukiyo-E\r",
+        "imagen": "https://i.ibb.co/ZmTsdq4/152311543.jpg"
+    },
+    {
+        "categoria": "RV",
+        "pregunta": "Dirigió la película \"Lo Que El Viento Se Llevó\".",
+        "respuesta": "Víctor Fleming",
+        "incorrecta1": "Steven Spielberg",
+        "incorrecta2": "Alfred Hitchcock",
+        "incorrecta3": "Martin Scorsese\r",
+        "imagen": "https://i.ibb.co/5nxDtzb/image.jpg"
+    },
+    {
+        "categoria": "RV",
+        "pregunta": "Autor de \"20 poemas de amor y una canción desesperada\".",
+        "respuesta": "Pablo Neruda",
+        "incorrecta1": "Rosalía De Castro",
+        "incorrecta2": "Pedro Antonio De Alarcón",
+        "incorrecta3": "Miguel De Cervantes Saavedra\r"
     }
 ]
